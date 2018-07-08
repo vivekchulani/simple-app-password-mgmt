@@ -1,0 +1,31 @@
+@CHARSET "ISO-8859-1";
+
+body {
+    background-image: url("background.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#header{
+	text-align: right;
+	color: black;
+	font-size: xx-large;
+	font-style: italic;
+	font: bold;
+	border-bottom-width: thick;
+	border-bottom-style: double;
+}
+
+#login{
+	text-align: center;
+	border: medium;
+	border-bottom-width: thick;
+	border-bottom-style: double;
+}
+ul{
+	list-style: none;
+	color: red;
+	font-size: large;
+	font-weight: bold; 
+}
+

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+
+<!--
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <global>
+
+        <!-- An example global constant
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        end example-->
+
+    </global>
+<formset>
+        <form name="LoginForm">
+            <field
+                property="username"
+                depends="required">
+                    <arg key="errors.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="errors.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+        </form>
+        
+        <form name="Register">
+            <field
+                property="fname"
+                depends="required">
+                    <arg key="errors.fname"/>
+                    </field>
+            <field
+                property="lname"
+                depends="required">
+                    <arg key="errors.lname"/>
+                    </field>
+            <field
+                property="username"
+                depends="required">
+                    <arg key="errors.username"/>
+                    </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="errors.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+            <field
+                property="mail"
+                depends="required,email">
+                    <arg key="errors.mail"/>
+              </field>
+            <field	
+                property="ssn"
+                depends="required,maxlength,minlength">
+                    <arg0 key="errors.ssn"/>
+                     <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <arg2 name="minlength" key="${var:minlength}" resource="false"/>
+                     <var>
+                     <var-name>maxlength</var-name>
+                     <var-value>4</var-value>
+                     </var>
+                     <var>
+                     <var-name>minlength</var-name>
+                     <var-value>4</var-value>
+                     </var>
+              </field>
+        </form>
+        
+        <form name="AddEntry">
+            <field
+                property="title"
+                depends="required">
+                    <arg key="errors.title"/>
+                    </field>
+            <field
+                property="url"
+                depends="url,required">
+                    <arg key="errors.link"/>
+                    </field>
+            <field
+                property="username"
+                depends="required">
+                    <arg key="errors.username"/>
+                    </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="errors.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+            <field
+                property="Category"
+                depends="required">
+                    <arg key="errors.category"/>
+              </field>
+        </form>
+        
+        <form name="Forget">
+            <field
+                property="ssn"
+                depends="required,maxlength,minlength">
+                     <arg0 key="errors.ssn"/>
+                     <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                     <arg2 name="minlength" key="${var:minlength}" resource="false"/>
+                     <var>
+                     <var-name>maxlength</var-name>
+                     <var-value>4</var-value>
+                     </var>
+                     <var>
+                     <var-name>minlength</var-name>
+                     <var-value>4</var-value>
+                     </var>
+              </field>
+        </form>
+        
+        
+          <form name="RetrieveEntry">
+          <field
+                property="Category"
+                depends="required">
+                    <arg key="errors.category"/>
+              </field>
+        </form>
+    </formset>
+    <!-- An example form 
+    <formset>
+        <form name="logonForm">
+            <field
+                property="username"
+                depends="required">
+                    <arg key="logonForm.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="logonForm.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+        </form>
+    </formset>
+	end example form -->
+
+    <!-- An example formset for another locale 
+    <formset language="fr">
+
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^[0-9a-zA-Z]*$</constant-value>
+        </constant>
+
+	</formset>
+	-->
+
+</form-validation>
